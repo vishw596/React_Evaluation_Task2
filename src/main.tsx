@@ -7,6 +7,7 @@ import Dashboard from "./components/Dashboard.tsx";
 import ProtectedRoute from "./components/ProtectedRoute.tsx";
 import Login from "./components/Login.tsx";
 import TaskProvider from "./context/TaskProvider.tsx";
+import TaskDetails from "./components/TaskDetails.tsx";
 
 const routerConfig = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ const routerConfig = createBrowserRouter([
                 path: "/dashboard",
                 element: <Dashboard />,
             },
+            {
+                path:"/dashboard/:id",
+                element:<TaskDetails/>
+            }
         ],
     },
 ]);

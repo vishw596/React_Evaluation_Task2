@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useTask, type Task } from "../context/TaskProvider";
+import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
     const { tasks, addTask, deleteTask } = useTask();
@@ -8,6 +9,9 @@ export default function Dashboard() {
         description: "",
         completed: false,
     });
+
+    const navigate = useNavigate();
+    
     function handleTaskInput(name: keyof Task, value: string | boolean) {
         setTaskInput((prev) => ({ ...prev, [name]: value }));
     }
@@ -67,7 +71,7 @@ export default function Dashboard() {
                             key={id}
                             onClick={(e) => {
                                 if (e.target.tagName === "DIV") {
-                                    
+                                    navigate(`/dashboard/${id}`)
                                 }
                             }}>
                             <div>
